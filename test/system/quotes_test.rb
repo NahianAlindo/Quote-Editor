@@ -3,6 +3,7 @@ require "application_system_test_case"
 class QuotesTest < ApplicationSystemTestCase
 
   setup do
+    login_as users(:accountant)
     @quote = Quote.ordered.first
   end
 
@@ -43,7 +44,7 @@ class QuotesTest < ApplicationSystemTestCase
     fill_in "Name", with: "Updated quote"
 
     assert_selector "h1", text: "Quotes"
-    click_on "Update quote"
+    click_on "Update Quote"
 
     assert_selector "h1", text: "Quotes"
     assert_text "Updated quote"

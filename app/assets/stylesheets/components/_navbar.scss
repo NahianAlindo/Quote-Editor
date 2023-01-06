@@ -1,0 +1,19 @@
+.navbar{
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-large);
+  padding: var(--space-xs) var(--space-m);
+  margin-bottom: var(--space-xxl);
+  background-color: (var(--color-white));
+
+  &__brand{
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: var(--space-xs);
+    color: var(--color-text-header);
+  }
+
+  &__right{
+    margin-left: auto;
+  }
+}

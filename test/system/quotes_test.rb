@@ -22,7 +22,7 @@ class QuotesTest < ApplicationSystemTestCase
     # When we fill in the name input with "Capybara quote"
     # and we click on "Create Quote"
     assert_selector "h1", text: "Quotes"
-    click_on "Create Quote"
+    click_on "Create quote"
 
     # We expect to be back on the page with the title "Quotes"
     # and to see our "Capybara quote" added to the list
@@ -44,7 +44,7 @@ class QuotesTest < ApplicationSystemTestCase
     fill_in "Name", with: "Updated quote"
 
     assert_selector "h1", text: "Quotes"
-    click_on "Update Quote"
+    click_on "Update quote"
 
     assert_selector "h1", text: "Quotes"
     assert_text "Updated quote"

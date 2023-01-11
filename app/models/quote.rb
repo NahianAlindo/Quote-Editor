@@ -1,5 +1,5 @@
 class Quote < ApplicationRecord
-  has_many :line_item_dates, dependent: :destroy
+  has_many :line_item_dates, through: :line_item_dates
   belongs_to :company
   validates :name, presence: true
 
@@ -9,4 +9,8 @@ class Quote < ApplicationRecord
   # after_destroy_commit -> { broadcast_remove_to "quotes" }
 
   broadcasts_to -> (quote) { "quotes" }, inserts_by: :prepend
+
+  def total_price
+    line_items.sum(&:total_price)
+  end
 end
